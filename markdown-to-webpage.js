@@ -28,36 +28,26 @@ const converter = new showdown.Converter();
 const input = fs.readFileSync(args.input, 'utf-8');
 const content = converter.makeHtml(input);
 
-/**
- * Get all the data sent to stdin and append it to our global input
- */
-// process.stdin.on('data', chunk => {
-// 	input += chunk;
-// });
-
-/**
- * Once all data is read, we get the template file, process it with handlebars, inject the input,
- * then write the output to either the passed in `output` path, or 'output.html'.
- */
-// process.stdin.on('end', () => {
 fs.readFile(path.resolve(__dirname, 'helpers/template.html'), 'utf-8', (err, src) => {
 	if (err) {
 		console.error(err);
 		process.exit(2);
 	}
+
 	const template = Handlebars.compile(src, { noEscape: true });
-	const title = args.title || 'output.html';
+	const title = args.title || 'this used to be markdown!';
 	const outputPath = args.output || path.resolve(__dirname, 'output.html');
 	const html = template({ title, content });
+
 	fs.writeFile(path.resolve(__dirname, outputPath), html, (err, data) => {
 		if (err) {
 			console.error(err);
 			process.exit(2);
 		}
-		console.log('SUCCESS! See output.html for results.');
+
+		console.log(`SUCCESS! See ${outputPath} for results.`);
 		process.exit(0);
 	});
 });
-// });
 
 
