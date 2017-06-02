@@ -1,0 +1,16 @@
+{
+  "name": "markdown-to-weboage",
+  "version": "0.0.1-beta",
+  "description": "A simple module that takes a markdown file, converts it to html, and injects it into a ready to serve HTML file (with head and body tags)",
+  "main": "markdown-to-webpage.js",
+  "dependencies": {
+    "github-markdown-css": "^2.6.0",
+    "handlebars": "^4.0.10",
+    "minimist": "^1.2.0",
+    "showdown": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "author": "Graham D Losee",
+  "license": "ISC"
+}
