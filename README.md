@@ -4,6 +4,10 @@ I created this module because I wanted a markdown -> HTML converter that actuall
 
 Leveraging [Handlebars](http://handlebarsjs.com/reference.html) and [showdown](https://github.com/showdownjs/showdown), this module will accept a markdown file as input, and inject that into the body tag of an HTML file.
 
+This is kind of like [MKDocs](http://www.mkdocs.org/) or [Jekyll](http://jekyllrb.com/), but way simpler.
+
+I created this because I had a markdown file that I wanted to make into a full webpage. Simple as that.
+
 ## Future thoughts
 
 * Ability to pass in different tags you want to put in the head: `link`, `meta`, `script`
