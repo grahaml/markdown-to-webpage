@@ -2,9 +2,17 @@
 <html>
 	<head>
 		<title>{{title}}</title>
-		<link rel="stylesheet" href="./github-markdown.css">
+		<style>
+			.markdown-body {
+				max-width: 720px;
+				margin: 40px auto;
+			}
+			{{styles}}
+		</style>
 	</head>
-	<body class="markdown-body">
-		{{content}}
+	<body>
+		<div class="markdown-body">
+			{{content}}
+		</div>
 	</body>
 </html>

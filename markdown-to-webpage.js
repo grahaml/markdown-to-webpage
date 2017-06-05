@@ -37,7 +37,11 @@ fs.readFile(path.resolve(__dirname, 'helpers/template.html'), 'utf-8', (err, src
 	const template = Handlebars.compile(src, { noEscape: true });
 	const title = args.title || 'this used to be markdown!';
 	const outputPath = args.output || path.resolve(__dirname, 'output.html');
-	const html = template({ title, content });
+	const styles = fs.readFileSync(
+		path.resolve('./node_modules/github-markdown-css/github-markdown.css'), 'utf-8'
+	);
+
+	const html = template({ title, content, styles });
 
 	fs.writeFile(path.resolve(__dirname, outputPath), html, (err, data) => {
 		if (err) {
